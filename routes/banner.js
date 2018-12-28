@@ -1,0 +1,9 @@
+const express = require('express');
+const https = require('https');
+const router = express.Router();
+
+router.get('/', (req, res, next) => {
+  res.json({ "status": 0, "data": [{ "bannerId": 68, "imgUrl": "https://static.maizuo.com/c7b5467d1593c7c708d272a6488c373e.jpg", "actionType": 2, "actionData": "{\"url\":\"https://m.maizuo.com/mz-act/active/aSSYtC360853\"}", "masterTitle": "", "slaveTitle": "", "bindBusinessId": "" }, { "bannerId": 67, "imgUrl": "https://static.maizuo.com/419af7ddcd926e809f555a548be2a317.jpg", "actionType": 2, "actionData": "{\"url\":\"https://m.maizuo.com/mz-act/active/YXIXBk576366\"}", "masterTitle": "", "slaveTitle": "", "bindBusinessId": "" }, { "bannerId": 65, "imgUrl": "https://static.maizuo.com/af1ec2069bba80fd25070bbe7b0cfc86.jpg", "actionType": 2, "actionData": "{\"url\":\"http://mp.weixin.qq.com/s?__biz=MjM5NzEzNTEyMA==\u0026mid=505451117\u0026idx=1\u0026sn=a32cf60322a0c5d14b0834af92d714c0\u0026chksm=3d0aa4120a7d2d04c0083ca3ebeb9025646a8e3ad77fbc365a72d6b440c87677f6b2db0e178e#rd\"}", "masterTitle": "", "slaveTitle": "", "bindBusinessId": "" }, { "bannerId": 66, "imgUrl": "https://static.maizuo.com/a9bb2632c573536583036c4043bc1de4.jpg", "actionType": 2, "actionData": "{\"url\":\"http://mp.weixin.qq.com/s?__biz=MjM5NzEzNTEyMA==\u0026mid=505451114\u0026idx=1\u0026sn=6ec055c5357f4dc68b0ca2480ecd6eab\u0026chksm=3d0aa4150a7d2d03f726b6e6c67551206f79fd6254b836fe37150de1dbe56ef70d5628f920b4#rd\"}", "masterTitle": "", "slaveTitle": "", "bindBusinessId": "" }, { "bannerId": 25, "imgUrl": "https://static.maizuo.com/v5/upload/478f917b25402c3078dd0ba656243be8.jpg", "actionType": 2, "actionData": "{\"url\":\"https://m.maizuo.com/mz-act/active/mjjznA935098\"}", "masterTitle": "", "slaveTitle": "", "bindBusinessId": "" }], "msg": "success" })
+})
+
+module.exports = router;
