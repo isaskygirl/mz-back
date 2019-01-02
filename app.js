@@ -9,10 +9,10 @@ const cinema = require('./routes/cinema');
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-app.use('/banner', banner);
-app.use('/city', city);
-app.use('/film', film);
-app.use('/cinema', cinema);
+app.use('/api/banner', banner);
+app.use('/api/city', city);
+app.use('/api/film', film);
+app.use('/api/cinema', cinema);
 
 app.listen(9090);
 console.log('服务启动成功');
