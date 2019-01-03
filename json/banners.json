@@ -1,12 +1,4 @@
 [{
-  "bannerId": 68,
-  "imgUrl": "https://static.maizuo.com/c7b5467d1593c7c708d272a6488c373e.jpg",
-  "actionType": 2,
-  "actionData": "{\"url\":\"https://m.maizuo.com/mz-act/active/aSSYtC360853\"}",
-  "masterTitle": "",
-  "slaveTitle": "",
-  "bindBusinessId": ""
-}, {
   "bannerId": 67,
   "imgUrl": "https://static.maizuo.com/419af7ddcd926e809f555a548be2a317.jpg",
   "actionType": 2,
