@@ -1,0 +1,40 @@
+<!-- 这是一个模拟上传操作的页面 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" id="file" >
+  <button id="btn1">提交</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $(function() {
+      $('#btn1').click(function() {
+        // 得到文件信息
+        var fileEl = document.getElementById('file')
+        console.log(fileEl.files[0]);
+        // 需要构造一个 form表单的数据
+        var data = new FormData();
+        data.append('img', fileEl.files[0]);
+
+        $.ajax({
+          url: 'http://localhost:9090/api/user/updateImg',
+          type: 'POST',
+          data: data,
+          contentType: false,
+          processData: false,
+          success: function(res) {
+            console.log(res);
+          }
+        })
+      })
+    })
+  </script>
+</body>
+</html>

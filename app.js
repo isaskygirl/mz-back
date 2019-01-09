@@ -5,7 +5,16 @@ const banner = require('./routes/banner');
 const city = require('./routes/city');
 const film = require('./routes/film');
 const cinema = require('./routes/cinema');
-const user = require('./routes/user');
+// const user = require('./routes/user');
+const user = require('./routes/user2');
+
+app.use(express.static('public'));
+
+app.use(function(req, res, next) {
+  res.set('Access-Control-Allow-Origin', '*');
+
+  next();
+})
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
