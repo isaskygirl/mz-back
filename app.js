@@ -7,6 +7,7 @@ const film = require('./routes/film');
 const cinema = require('./routes/cinema');
 // const user = require('./routes/user');
 const user = require('./routes/user2');
+const weixin = require('./routes/weixin');
 
 app.use(express.static('public'));
 
@@ -24,6 +25,7 @@ app.use('/api/city', city);
 app.use('/api/film', film);
 app.use('/api/cinema', cinema);
 app.use('/api/user', user);
+app.use('/api/weixin', weixin);
 
-app.listen(9090);
+app.listen(80);
 console.log('服务启动成功');
