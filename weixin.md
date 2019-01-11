@@ -43,3 +43,35 @@ PS:
 fs.readFile(, () =>)
 
 fs.readFileSync
+
+回调地狱的示例
+
+function () => {
+  () => {
+    () => {
+      () => {
+        () => {
+          () => {
+
+          }
+        }
+      }
+    }
+  }
+}
+
+经过promise处理一下
+() => {
+
+}
+.then()
+.then()
+.then()
+.then()
+
+经过 async wait 处理
+async () => {
+  await fn1();
+  await fn2();
+  await fn3();
+}
