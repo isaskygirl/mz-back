@@ -1,4 +1,8 @@
 const express = require('express');
+const https = require('https');
+const fs = require('fs');
+
+const wxConfig = require('../config/wx.config');
 const router = express.Router();
 
 /**
@@ -13,7 +17,13 @@ router.get('/sign', function(req, res, next) {
 
   // url地址
   let url = req.query.url;
-  res.send(`时间戳：${timestamp} ，随机字符串：${nonceStr}`);
+
+
+  let token = getAccessToken(wxConfig.appId, wxConfig.appSecret);
+
+
+
+  res.send(`时间戳：${timestamp} ，随机字符串：${nonceStr}, token: ${token}`);
 })
 
 /**
@@ -26,8 +36,38 @@ const getTicket = () => {
 /**
  * 获取 access_token
  */
-const getAccessToken = () => {
+const getAccessToken = (appId, appSecret) => {
+  let url = `https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${appId}&secret=${appSecret}`;
 
+  // 读取文件
+  let tokenObj = JSON.parse(fs.readFileSync(wxConfig.tokenPath, 'utf-8'));
+
+  // 判断是否过期
+  if (tokenObj['expires_time'] > getTimestamp()) {
+    // 未过期
+    console.log('token未过期');
+    return tokenObj['access_token'];
+  } else {
+    // 过期了
+    console.log('token过期了');
+    https.get(url, (res) => {
+      let rawData = '';
+      res.on('data', (chunk) => {
+        rawData += chunk;
+      })
+      res.on('end', () => {
+        // 得到数据，需要给保存起来。
+        let data = JSON.parse(rawData);
+        data['expires_time'] = getTimestamp() + 7000;
+
+        // 写入到 json/access_token.json 文件中。
+        fs.writeFileSync(wxConfig.tokenPath, JSON.stringify(data));
+        return 1
+      })
+    })
+
+    return 2
+  }
 }
 
 /**

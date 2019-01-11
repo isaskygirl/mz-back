@@ -28,3 +28,18 @@
 PS:
 1. access_token 与 jsapi_ticket 有接口限制。需要我们做存储。
 2. 端口只能是 80 或者 443
+
+
+异步操作的几种手法
+
+1. 回调函数
+2. 事件的方法
+3. generator 处理将 异步代码写成同步的方式
+4. 大绝招     async await   ES8 中的代码
+
+
+### async / await 将异步的方法转成 同步的写法
+
+fs.readFile(, () =>)
+
+fs.readFileSync
